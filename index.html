@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KodeKawan - Tutor Pemrograman AI</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="logo">&lt;/&gt;</span><div><h1>KodeKawan</h1><p>Tutor pemrograman AI</p></div></div>
+    <label>Gaya bahasa
+      <select id="style"><option value="santai">Santai</option><option value="formal">Formal</option></select>
+    </label>
+    <label>Domain materi
+      <select id="domain">
+        {% for k, v in domains.items() %}<option value="{{k}}">{{v}}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="memory" checked> Aktifkan memory</label>
+    <button id="reset" class="ghost">Hapus memory &amp; chat</button>
+    <div class="hint">Coba tanya:<br>
+      <a data-q="Jelaskan perulangan for di Python">Perulangan for</a>
+      <a data-q="Apa beda list dan tuple?">List vs tuple</a>
+      <a data-q="Cara membuat fungsi rekursif?">Rekursi</a>
+    </div>
+  </aside>
+  <main class="chat">
+    <header>Belajar bareng KodeKawan</header>
+    <div id="log"></div>
+    <form id="form">
+      <input id="input" placeholder="Tulis pertanyaan pemrogramanmu..." autocomplete="off">
+      <button type="submit">Kirim</button>
+    </form>
+  </main>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
